@@ -1,0 +1,370 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B20FA9531D50904B00A72352 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B20FA9521D50904B00A72352 /* main.cpp */; };
+		B20FA96B1D50930600A72352 /* libuv.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20FA9631D50930600A72352 /* libuv.a */; };
+		B20FAA021D5484E200A72352 /* tcpclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B20FA9F91D5484E200A72352 /* tcpclient.cpp */; };
+		B20FAA031D5484E200A72352 /* tcpserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B20FA9FB1D5484E200A72352 /* tcpserver.cpp */; };
+		B20FAA041D5484E200A72352 /* test_tcpclient_reconnect.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B20FA9FE1D5484E200A72352 /* test_tcpclient_reconnect.cpp */; };
+		B20FAA051D5484E200A72352 /* test_tcpclient.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B20FA9FF1D5484E200A72352 /* test_tcpclient.cpp */; };
+		B20FAA061D5484E200A72352 /* test_tcpserver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B20FAA001D5484E200A72352 /* test_tcpserver.cpp */; };
+		B20FAA0A1D54957700A72352 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20FAA081D54957600A72352 /* libssl.a */; };
+		B20FAA0C1D54959C00A72352 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B20FAA0B1D54959C00A72352 /* libcrypto.a */; };
+		B20FAA0F1D56DBBA00A72352 /* myLibuvServer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B20FAA0D1D56DBBA00A72352 /* myLibuvServer.cpp */; };
+		B20FAA121D56E04000A72352 /* CommanDef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B20FAA101D56E04000A72352 /* CommanDef.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B20FA94D1D50904B00A72352 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		B20FA94F1D50904B00A72352 /* libuv_server */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = libuv_server; sourceTree = BUILT_PRODUCTS_DIR; };
+		B20FA9521D50904B00A72352 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		B20FA9631D50930600A72352 /* libuv.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libuv.a; path = libuv/libuv.a; sourceTree = "<group>"; };
+		B20FA9641D50930600A72352 /* pthread-barrier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "pthread-barrier.h"; path = "libuv/pthread-barrier.h"; sourceTree = "<group>"; };
+		B20FA9651D50930600A72352 /* uv-darwin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "uv-darwin.h"; path = "libuv/uv-darwin.h"; sourceTree = "<group>"; };
+		B20FA9661D50930600A72352 /* uv-errno.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "uv-errno.h"; path = "libuv/uv-errno.h"; sourceTree = "<group>"; };
+		B20FA9671D50930600A72352 /* uv-threadpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "uv-threadpool.h"; path = "libuv/uv-threadpool.h"; sourceTree = "<group>"; };
+		B20FA9681D50930600A72352 /* uv-unix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "uv-unix.h"; path = "libuv/uv-unix.h"; sourceTree = "<group>"; };
+		B20FA9691D50930600A72352 /* uv-version.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "uv-version.h"; path = "libuv/uv-version.h"; sourceTree = "<group>"; };
+		B20FA96A1D50930600A72352 /* uv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = uv.h; path = libuv/uv.h; sourceTree = "<group>"; };
+		B20FA9F31D547BD200A72352 /* easylogging++.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "easylogging++.h"; sourceTree = "<group>"; };
+		B20FA9F51D5484E200A72352 /* DumpFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DumpFile.h; path = "libuv_tcp-master/DumpFile.h"; sourceTree = "<group>"; };
+		B20FA9F61D5484E200A72352 /* net_base.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = net_base.h; path = "libuv_tcp-master/net_base.h"; sourceTree = "<group>"; };
+		B20FA9F71D5484E200A72352 /* packet_sync.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = packet_sync.h; path = "libuv_tcp-master/packet_sync.h"; sourceTree = "<group>"; };
+		B20FA9F81D5484E200A72352 /* pod_circularbuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = pod_circularbuffer.h; path = "libuv_tcp-master/pod_circularbuffer.h"; sourceTree = "<group>"; };
+		B20FA9F91D5484E200A72352 /* tcpclient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tcpclient.cpp; path = "libuv_tcp-master/tcpclient.cpp"; sourceTree = "<group>"; };
+		B20FA9FA1D5484E200A72352 /* tcpclient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tcpclient.h; path = "libuv_tcp-master/tcpclient.h"; sourceTree = "<group>"; };
+		B20FA9FB1D5484E200A72352 /* tcpserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = tcpserver.cpp; path = "libuv_tcp-master/tcpserver.cpp"; sourceTree = "<group>"; };
+		B20FA9FC1D5484E200A72352 /* tcpserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tcpserver.h; path = "libuv_tcp-master/tcpserver.h"; sourceTree = "<group>"; };
+		B20FA9FD1D5484E200A72352 /* tcpserverprotocolprocess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = tcpserverprotocolprocess.h; path = "libuv_tcp-master/tcpserverprotocolprocess.h"; sourceTree = "<group>"; };
+		B20FA9FE1D5484E200A72352 /* test_tcpclient_reconnect.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_tcpclient_reconnect.cpp; path = "libuv_tcp-master/test_tcpclient_reconnect.cpp"; sourceTree = "<group>"; };
+		B20FA9FF1D5484E200A72352 /* test_tcpclient.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_tcpclient.cpp; path = "libuv_tcp-master/test_tcpclient.cpp"; sourceTree = "<group>"; };
+		B20FAA001D5484E200A72352 /* test_tcpserver.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = test_tcpserver.cpp; path = "libuv_tcp-master/test_tcpserver.cpp"; sourceTree = "<group>"; };
+		B20FAA011D5484E200A72352 /* thread_uv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = thread_uv.h; path = "libuv_tcp-master/thread_uv.h"; sourceTree = "<group>"; };
+		B20FAA081D54957600A72352 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libssl.a; path = openssl/libssl.a; sourceTree = "<group>"; };
+		B20FAA091D54957700A72352 /* openssl */ = {isa = PBXFileReference; lastKnownFileType = folder; name = openssl; path = openssl/openssl; sourceTree = "<group>"; };
+		B20FAA0B1D54959C00A72352 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcrypto.a; path = openssl/libcrypto.a; sourceTree = "<group>"; };
+		B20FAA0D1D56DBBA00A72352 /* myLibuvServer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = myLibuvServer.cpp; sourceTree = "<group>"; };
+		B20FAA0E1D56DBBA00A72352 /* myLibuvServer.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = myLibuvServer.hpp; sourceTree = "<group>"; };
+		B20FAA101D56E04000A72352 /* CommanDef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommanDef.cpp; sourceTree = "<group>"; };
+		B20FAA111D56E04000A72352 /* CommanDef.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CommanDef.hpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B20FA94C1D50904B00A72352 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20FAA0A1D54957700A72352 /* libssl.a in Frameworks */,
+				B20FA96B1D50930600A72352 /* libuv.a in Frameworks */,
+				B20FAA0C1D54959C00A72352 /* libcrypto.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B20FA9461D50904B00A72352 = {
+			isa = PBXGroup;
+			children = (
+				B20FA9511D50904B00A72352 /* libuv_server */,
+				B20FA9501D50904B00A72352 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B20FA9501D50904B00A72352 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B20FA94F1D50904B00A72352 /* libuv_server */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B20FA9511D50904B00A72352 /* libuv_server */ = {
+			isa = PBXGroup;
+			children = (
+				B20FAA071D54956C00A72352 /* openssl */,
+				B20FA9F41D5484BC00A72352 /* libuv_tcp */,
+				B20FA9621D5092FA00A72352 /* uv */,
+				B20FA9521D50904B00A72352 /* main.cpp */,
+				B20FA9F31D547BD200A72352 /* easylogging++.h */,
+				B20FAA0D1D56DBBA00A72352 /* myLibuvServer.cpp */,
+				B20FAA0E1D56DBBA00A72352 /* myLibuvServer.hpp */,
+				B20FAA101D56E04000A72352 /* CommanDef.cpp */,
+				B20FAA111D56E04000A72352 /* CommanDef.hpp */,
+			);
+			path = libuv_server;
+			sourceTree = "<group>";
+		};
+		B20FA9621D5092FA00A72352 /* uv */ = {
+			isa = PBXGroup;
+			children = (
+				B20FA9631D50930600A72352 /* libuv.a */,
+				B20FA9641D50930600A72352 /* pthread-barrier.h */,
+				B20FA9651D50930600A72352 /* uv-darwin.h */,
+				B20FA9661D50930600A72352 /* uv-errno.h */,
+				B20FA9671D50930600A72352 /* uv-threadpool.h */,
+				B20FA9681D50930600A72352 /* uv-unix.h */,
+				B20FA9691D50930600A72352 /* uv-version.h */,
+				B20FA96A1D50930600A72352 /* uv.h */,
+			);
+			name = uv;
+			sourceTree = "<group>";
+		};
+		B20FA9F41D5484BC00A72352 /* libuv_tcp */ = {
+			isa = PBXGroup;
+			children = (
+				B20FA9F51D5484E200A72352 /* DumpFile.h */,
+				B20FA9F61D5484E200A72352 /* net_base.h */,
+				B20FA9F71D5484E200A72352 /* packet_sync.h */,
+				B20FA9F81D5484E200A72352 /* pod_circularbuffer.h */,
+				B20FA9F91D5484E200A72352 /* tcpclient.cpp */,
+				B20FA9FA1D5484E200A72352 /* tcpclient.h */,
+				B20FA9FB1D5484E200A72352 /* tcpserver.cpp */,
+				B20FA9FC1D5484E200A72352 /* tcpserver.h */,
+				B20FA9FD1D5484E200A72352 /* tcpserverprotocolprocess.h */,
+				B20FA9FE1D5484E200A72352 /* test_tcpclient_reconnect.cpp */,
+				B20FA9FF1D5484E200A72352 /* test_tcpclient.cpp */,
+				B20FAA001D5484E200A72352 /* test_tcpserver.cpp */,
+				B20FAA011D5484E200A72352 /* thread_uv.h */,
+			);
+			name = libuv_tcp;
+			sourceTree = "<group>";
+		};
+		B20FAA071D54956C00A72352 /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				B20FAA081D54957600A72352 /* libssl.a */,
+				B20FAA0B1D54959C00A72352 /* libcrypto.a */,
+				B20FAA091D54957700A72352 /* openssl */,
+			);
+			name = openssl;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B20FA94E1D50904B00A72352 /* libuv_server */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B20FA9561D50904B00A72352 /* Build configuration list for PBXNativeTarget "libuv_server" */;
+			buildPhases = (
+				B20FA94B1D50904B00A72352 /* Sources */,
+				B20FA94C1D50904B00A72352 /* Frameworks */,
+				B20FA94D1D50904B00A72352 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = libuv_server;
+			productName = libuv_server;
+			productReference = B20FA94F1D50904B00A72352 /* libuv_server */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B20FA9471D50904B00A72352 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "何宏洲";
+				TargetAttributes = {
+					B20FA94E1D50904B00A72352 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+				};
+			};
+			buildConfigurationList = B20FA94A1D50904B00A72352 /* Build configuration list for PBXProject "libuv_server" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = B20FA9461D50904B00A72352;
+			productRefGroup = B20FA9501D50904B00A72352 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B20FA94E1D50904B00A72352 /* libuv_server */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B20FA94B1D50904B00A72352 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B20FAA121D56E04000A72352 /* CommanDef.cpp in Sources */,
+				B20FAA061D5484E200A72352 /* test_tcpserver.cpp in Sources */,
+				B20FAA051D5484E200A72352 /* test_tcpclient.cpp in Sources */,
+				B20FAA031D5484E200A72352 /* tcpserver.cpp in Sources */,
+				B20FAA021D5484E200A72352 /* tcpclient.cpp in Sources */,
+				B20FAA0F1D56DBBA00A72352 /* myLibuvServer.cpp in Sources */,
+				B20FAA041D5484E200A72352 /* test_tcpclient_reconnect.cpp in Sources */,
+				B20FA9531D50904B00A72352 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		B20FA9541D50904B00A72352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					MACOS,
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B20FA9551D50904B00A72352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		B20FA9571D50904B00A72352 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/usr/local/Cellar/openssl/1.0.2e/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libuv_server",
+					"$(PROJECT_DIR)/libuv_server/libuv",
+					"$(PROJECT_DIR)/libuv_server/openssl",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B20FA9581D50904B00A72352 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/usr/local/Cellar/openssl/1.0.2e/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/libuv_server",
+					"$(PROJECT_DIR)/libuv_server/libuv",
+					"$(PROJECT_DIR)/libuv_server/openssl",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B20FA94A1D50904B00A72352 /* Build configuration list for PBXProject "libuv_server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B20FA9541D50904B00A72352 /* Debug */,
+				B20FA9551D50904B00A72352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B20FA9561D50904B00A72352 /* Build configuration list for PBXNativeTarget "libuv_server" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B20FA9571D50904B00A72352 /* Debug */,
+				B20FA9581D50904B00A72352 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B20FA9471D50904B00A72352 /* Project object */;
+}
