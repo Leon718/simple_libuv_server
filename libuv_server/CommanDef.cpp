@@ -14,7 +14,7 @@ bool getUvErr(const std::string& command,int errcode){
     if (errcode == 0) {
         return true;
     }else{
-        LOG(ERROR)<<command<<" 失败，"<<uv_err_name(errcode)<<" "<<uv_strerror(errcode)<<endl;
-        return false;
+        //LOG(ERROR)<<command<<" 失败，"<<uv_err_name(errcode)<<" "<<uv_strerror(errcode)<<endl;
+		return false;
     }
 }

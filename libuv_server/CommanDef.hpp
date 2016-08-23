@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <sstream>
 #include <string>
+#include "uv.h"
 /*
  convert other data to string
  usage :

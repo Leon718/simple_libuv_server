@@ -2,13 +2,19 @@
 //  myLibuvServer.cpp
 //  libuv_server
 //
-//  Created by ä½•å®æ´² on 16/8/7.
-//  Copyright Â© 2016å¹´ ä½•å®æ´². All rights reserved.
+//  Created by ºÎºêÖŞ on 16/8/7.
+//  Copyright ? 2016Äê ºÎºêÖŞ. All rights reserved.
 //
+
 #include <assert.h>
 #include "myLibuvServer.hpp"
 #include "easylogging++.h"
 #include "CommanDef.hpp"
+#ifdef WIN32
+#include <WinSock2.h>
+#else
+#include <unistd.h>
+#endif
 
 using namespace std;
 
@@ -34,9 +40,9 @@ bool myLibuvServer::init(const string& ip,int port){
     }
     
     uv_tcp_init(&_server_loop, &_server);
-    _server.data = this;//connectä¹‹åçš„å›è°ƒæ²¡æœ‰ä¸Šä¸‹æ–‡ï¼Œæ‰€ä»¥å€Ÿç”¨tcp_tçš„dataä¼ é€’ä¸Šä¸‹æ–‡ã€‚
+    _server.data = this;//connectÖ®ºóµÄ»Øµ÷Ã»ÓĞÉÏÏÂÎÄ£¬ËùÒÔ½èÓÃtcp_tµÄdata´«µİÉÏÏÂÎÄ¡£
     
-    //sockaddr_inå°±æ˜¯unixæ ‡å‡†ã€‚ä½¿ç”¨uv_ip4_addræ¥å£èµ‹å€¼ipç«¯å£
+    //sockaddr_in¾ÍÊÇunix±ê×¼¡£Ê¹ÓÃuv_ip4_addr½Ó¿Ú¸³Öµip¶Ë¿Ú
     struct sockaddr_in addr;
     uv_ip4_addr(ip.c_str(), port, &addr);
     
@@ -45,7 +51,7 @@ bool myLibuvServer::init(const string& ip,int port){
     return getUvErr("bind "+T_toStr<int>(port),ret);
 }
 
-//å¼€å§‹ç›‘å¬
+//¿ªÊ¼¼àÌı
 bool myLibuvServer::Start(){
     int ret = uv_listen((uv_stream_t*) &_server, DEFAULT_BACKLOG, on_new_connection);
     if (!getUvErr("Listen",ret)) {
@@ -59,22 +65,22 @@ bool myLibuvServer::Start(){
     return true;
 }
 
-//è¯¥å›è°ƒæ˜¯åœ¨å†…æ ¸listen socketæ¥æ”¶åˆ°ä¸€ä¸ªé“¾æ¥çš„æ—¶å€™ã€‚
-//è¯¥å‡½æ•°æ”¾ä¸»çº¿ç¨‹ã€‚clientçš„read writeæ”¾çº¿ç¨‹æ± 
+//¸Ã»Øµ÷ÊÇÔÚÄÚºËlisten socket½ÓÊÕµ½Ò»¸öÁ´½ÓµÄÊ±ºò¡£
+//¸Ãº¯Êı·ÅÖ÷Ïß³Ì¡£clientµÄread write·ÅÏß³Ì³Ø
 void myLibuvServer::on_new_connection(uv_stream_t *server, int status) {
-//    1. æ£€æŸ¥å›è°ƒçŠ¶æ€
+//    1. ¼ì²é»Øµ÷×´Ì¬
     if (!getUvErr("new connection", status)) {
         return;
     }
-//    2. å¾—åˆ°ä¸Šä¸‹æ–‡
+//    2. µÃµ½ÉÏÏÂÎÄ
     myLibuvServer* mylibuvserver = (myLibuvServer*)server->data;
     assert((void*)&mylibuvserver->_server==(void*)server);
     
-//    3. new ä¸€ä¸ªclientå®ä¾‹
+//    3. new Ò»¸öclientÊµÀı
     myLibuvClientCtx * ClientCtx = new myLibuvClientCtx(mylibuvserver->_server_loop);
     mylibuvserver->_clients.push_back(ClientCtx);
     
-//    4. ClientCtx æ¥æ”¶connect socket
+//    4. ClientCtx ½ÓÊÕconnect socket
     if(ClientCtx->accept(&mylibuvserver->_server_loop, server)){
         ClientCtx->read();
     }
@@ -85,7 +91,7 @@ myLibuvClientCtx::myLibuvClientCtx(uv_loop_t& ref ):isclosed(false){
 }
 myLibuvClientCtx::~myLibuvClientCtx( ){
 }
-//æ¥æ”¶connect socket
+//½ÓÊÕconnect socket
 bool myLibuvClientCtx::accept(uv_loop_t* loopref,uv_stream_t* server_handle){
     if (loopref==nullptr||server_handle==nullptr) {
         return false;
@@ -104,7 +110,7 @@ bool myLibuvClientCtx::accept(uv_loop_t* loopref,uv_stream_t* server_handle){
     
     struct sockaddr peername;
     int namelen = sizeof(peername);
-    ret = uv_tcp_getpeername(&_connect_handle, &peername, &namelen);//uv_tcp_getsocknameæ˜¯è·å–æœ¬æœºä¿¡æ¯ uv_tcp_getpeernameæ˜¯è·å–å¯¹æ–¹ä¿¡æ¯
+    ret = uv_tcp_getpeername(&_connect_handle, &peername, &namelen);//uv_tcp_getsocknameÊÇ»ñÈ¡±¾»úĞÅÏ¢ uv_tcp_getpeernameÊÇ»ñÈ¡¶Ô·½ĞÅÏ¢
     if (!getUvErr("uv_tcp_getpeername", ret)) {
         return false;
     }
@@ -115,8 +121,8 @@ bool myLibuvClientCtx::accept(uv_loop_t* loopref,uv_stream_t* server_handle){
         return false;
     }
     peerip = check_ip;
-    peerport = ntohs(check_addr.sin_port);
-    LOG(INFO)<<"æ”¶åˆ°å®¢æˆ·ç«¯é“¾æ¥: "<<peerip<<":"<<peerport<<endl;
+    //peerport = ntohs(check_addr.sin_port);
+    LOG(INFO)<<"ÊÕµ½¿Í»§¶ËÁ´½Ó: "<<peerip<<":"<< check_addr.sin_port <<endl;
     return true;
 }
 uv_tcp_t* myLibuvClientCtx::getConnectHandle(){
@@ -135,7 +141,7 @@ void myLibuvClientCtx::after_close(uv_handle_t* connect_handle){
 }
 bool myLibuvClientCtx::read()
 {
-    //å¼€å§‹ç›‘å¬uv_stream_tçš„æ¶ˆæ¯ï¼Œä¸€æ—¦å†…æ ¸ä»ç½‘ç»œè¯»å–æ¶ˆæ¯ï¼Œå…ˆå›è°ƒbuffer_alloc æŠŠæ¶ˆæ¯æ”¾åˆ°å†…å­˜ã€‚å†å›è°ƒafter_readå¤„ç†æ¶ˆæ¯
+    //¿ªÊ¼¼àÌıuv_stream_tµÄÏûÏ¢£¬Ò»µ©ÄÚºË´ÓÍøÂç¶ÁÈ¡ÏûÏ¢£¬ÏÈ»Øµ÷buffer_alloc °ÑÏûÏ¢·Åµ½ÄÚ´æ¡£ÔÙ»Øµ÷after_read´¦ÀíÏûÏ¢
     int ret = uv_read_start((uv_stream_t*)&this->_connect_handle, myLibuvClientCtx::buffer_alloc, myLibuvClientCtx::after_read);
     if (!getUvErr("myLibuvClientCtx read", ret)) {
         return false;
@@ -156,34 +162,34 @@ void myLibuvClientCtx::after_read(uv_stream_t* connect_handle,ssize_t nread,cons
         assert(nread == UV_EOF);
         context->close();
     }else if (nread == 0) {
-        /* Everything OK, but nothing read. æ­£å¸¸ï¼Œå¿½ç•¥*/
+        /* Everything OK, but nothing read. Õı³££¬ºöÂÔ*/
     }else{
         LOG(INFO)<<"client : "<<buf->base;
         
-        //å‡†å¤‡è¦echoçš„æ•°æ®
+        //×¼±¸ÒªechoµÄÊı¾İ
         char* tmp = new char[nread];
         memcpy(tmp, buf->base, nread);
         
 
-        //è¯¥å‡½æ•°å†…éƒ¨å¹¶æ²¡æœ‰åˆ†é…ç©ºé—´ï¼Œåªæ˜¯æŠŠæŒ‡é’ˆå’Œé•¿åº¦ç»„è£…æˆä¸€ä¸ªstructã€‚
+        //¸Ãº¯ÊıÄÚ²¿²¢Ã»ÓĞ·ÖÅä¿Õ¼ä£¬Ö»ÊÇ°ÑÖ¸ÕëºÍ³¤¶È×é×°³ÉÒ»¸östruct¡£
         uv_buf_t writebuf_ = uv_buf_init(tmp, (unsigned int)nread);
         
-        //åˆ›å»ºä¸€ä¸ªwrite request å†™å…¥å¯¹è±¡æ˜¯handleï¼ˆconn socketï¼‰  å†™å…¥å†…å®¹æ˜¯buf
+        //´´½¨Ò»¸öwrite request Ğ´Èë¶ÔÏóÊÇhandle£¨conn socket£©  Ğ´ÈëÄÚÈİÊÇbuf
         uv_write_t write_req_;
-        write_req_.data = tmp;//ä¸ºäº†å†™å®Œé‡Šæ”¾ç©ºé—´
+        write_req_.data = tmp;//ÎªÁËĞ´ÍêÊÍ·Å¿Õ¼ä
         
-        //ç›‘è§†connect socketçš„å†™å…¥æƒ…å†µï¼ˆä¸€æ—¦å¾€connect socketå†™å®Œï¼‰ï¼Œä¼šå›è°ƒafter_write
+        //¼àÊÓconnect socketµÄĞ´ÈëÇé¿ö£¨Ò»µ©Íùconnect socketĞ´Íê£©£¬»á»Øµ÷after_write
         if (uv_write(&write_req_, connect_handle, &writebuf_, 1, after_write)) {
             printf("uv_write failed");
         }
     }
-    //æŠŠè¯»åˆ°çš„æ•°æ®é‡Šæ”¾
+    //°Ñ¶Áµ½µÄÊı¾İÊÍ·Å
     free(buf->base);
 }
 
 
 void myLibuvClientCtx::after_write(uv_write_t* req, int status) {
-    free(req->data);//é‡Šæ”¾å†™çš„æ•°æ®
+    free(req->data);//ÊÍ·ÅĞ´µÄÊı¾İ
     if (status == 0){
         return;
     }else{
